@@ -1,0 +1,16 @@
+//
+//  Word.swift
+//  LearnWords
+//
+//  Created by touraj vaziri on 2020-03-06.
+//  Copyright © 2020 Touraj. All rights reserved.
+//
+
+import Foundation
+
+struct Word: Identifiable {
+    var id = UUID()
+    var spanishWord: String
+    var translatedWorld: String
+    var isSelected: Bool
+}
