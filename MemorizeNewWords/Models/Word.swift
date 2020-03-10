@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Word: Identifiable {
+struct Word: Identifiable, Hashable {
     var id = UUID()
     var spanishWord: String
     var translatedWorld: String

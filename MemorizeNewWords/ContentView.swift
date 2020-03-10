@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var selectedRows = Set<Word>()
+    
     @State private var modelData: [Word] =
         [ Word(spanishWord: "CASA", translatedWorld: "HOME", isSelected: false),
           Word(spanishWord: "CAasdassadsadasdasdasdadasdS", translatedWorld: "HOMasdasdasd", isSelected: false)]
@@ -17,59 +19,64 @@ struct ContentView: View {
     @State private var newSpanishWord: String = ""
     @State private var newTranslatedWord: String = ""
     
-    @State var selectedRows = Set<UUID>()
-    
     var body: some View {
         
-        ZStack
-            {
-                // Background
-                Rectangle()
-                    .foregroundColor(Color.green)
-                    .edgesIgnoringSafeArea(.all)
-                
-                Rectangle()
-                    .foregroundColor(Color.yellow)
-                    .rotationEffect(Angle(degrees: 45))
-                    .edgesIgnoringSafeArea(.all)
-                
-                VStack(alignment: .center, spacing: 30) {
-                    VStack() {
-                        AddNewWordView(newSpanishWord: $newSpanishWord, newTranslatedWord: $newTranslatedWord, modelData: $modelData)
-                    }
+        NavigationView {
+            ZStack
+                {
+                    // Background
+                    Rectangle()
+                        .foregroundColor(Color.green)
+                        .edgesIgnoringSafeArea(.all)
                     
-                    Text("Words List").bold().foregroundColor(.black)
+                    Rectangle()
+                        .foregroundColor(Color.yellow)
+                        .rotationEffect(Angle(degrees: 45))
+                        .edgesIgnoringSafeArea(.all)
                     
-                    NavigationView {
-                        List(modelData, selection: $selectedRows) { pet in
-                            MultiSelectRow(pet: pet, selectedItems: self.$selectedRows)
+                    VStack(alignment: .center, spacing: 30) {
+                        VStack() {
+                            AddNewWordView(newSpanishWord: $newSpanishWord, newTranslatedWord: $newTranslatedWord, modelData: $modelData)
                         }
-                        .navigationBarTitle(Text("Selected \(selectedRows.count) words"))
-                    } .padding(.top, -20.0)
-                    
-                    
-                    Button(action: {
-                        // Code
                         
-                        NavigationLink(destination:  AddNewWordView(newSpanishWord: self.$newSpanishWord, newTranslatedWord: self.$newTranslatedWord, modelData: self.$modelData)) {
-                            Text("Do Something")
+                        Text("Words List").bold().foregroundColor(.black)
+                        
+                        NavigationView {
+                            
+                            ZStack
+                                {
+                                    VStack(alignment: .leading)
+                                    {
+                                        Text("Selected \(selectedRows.count) words")
+                                        List(modelData, selection: $selectedRows) { pet in
+                                            MultiSelectRow(pet: pet, selectedItems: self.$selectedRows)
+                                        }
+                                    }
+                                    
+                            }
+                            .navigationBarTitle(Text("Selected \(selectedRows.count) words"), displayMode: .inline)
                             
                         }
-                    }) {
-                        Text("Start Practicing").bold().foregroundColor(.black)
-                    }
-                        // .font(/*@START_MENU_TOKEN@*/.largeTitle/*@END_MENU_TOKEN@*/)
-                        .padding(.all,5)
-                        .background(Color.white.opacity(0.5))
-                        .cornerRadius(20)
-                        .scaleEffect(1.5)
+                        .padding(.top, -20.0)
+                        
+                        NavigationLink(destination: MemorizeWordsListView(selectedWordsToMemorize: Array(selectedRows)))
+                        {
+                            Text("START PRACTICING SELECTED WORDS").bold().foregroundColor(.black)
+                                .foregroundColor(.black)
+                                
+                                .padding(.all,5)
+                                
+                                .background(Color.white.opacity(0.5))
+                                .cornerRadius(20)
+                        }
                         .disabled(selectedRows.count <= 0)
-                    
-                }
-                .padding(.vertical)
-                
+                        
+                    }
+                    .padding(.vertical)
+            }
+                // .edgesIgnoringSafeArea(.all)
+                .navigationBarTitle(Text("Memorize Words Main Page"), displayMode: .inline)
         }
-        
     }
 }
 

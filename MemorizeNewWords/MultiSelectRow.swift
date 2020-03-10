@@ -11,9 +11,9 @@ import SwiftUI
 struct MultiSelectRow : View {
     
     var pet: Word
-    @Binding var selectedItems: Set<UUID>
+    @Binding var selectedItems: Set<Word>
     var isSelected: Bool {
-        selectedItems.contains(pet.id)
+        selectedItems.contains(pet)
     }
     
     var body: some View {
@@ -43,10 +43,17 @@ struct MultiSelectRow : View {
         }
         .onTapGesture  {
             if self.isSelected {
-                self.selectedItems.remove(self.pet.id)
+                self.selectedItems.remove(self.pet)
             } else {
-                self.selectedItems.insert(self.pet.id)
+                self.selectedItems.insert(self.pet)
             }
         }
+    }
+}
+
+struct MultiSelectRow_Previews: PreviewProvider {
+    static var previews: some View {
+        //var sasda:Int = 2
+        MultiSelectRow(pet:Word(spanishWord: "CASA", translatedWorld: "HOME", isSelected: false),selectedItems: Binding.constant([]))
     }
 }

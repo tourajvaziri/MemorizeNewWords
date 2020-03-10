@@ -16,6 +16,7 @@
 		056B692F23F155080069091F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056B692E23F155080069091F /* Preview Assets.xcassets */; };
 		056D8C662412B36F00BEA46B /* MultiSelectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D8C652412B36F00BEA46B /* MultiSelectRow.swift */; };
 		056D8C692412B74400BEA46B /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D8C682412B74400BEA46B /* Word.swift */; };
+		05CD54ED241673B8008E08D1 /* MemorizeWordsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CD54EC241673B8008E08D1 /* MemorizeWordsListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		056B693323F155080069091F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		056D8C652412B36F00BEA46B /* MultiSelectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectRow.swift; sourceTree = "<group>"; };
 		056D8C682412B74400BEA46B /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		05CD54EC241673B8008E08D1 /* MemorizeWordsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeWordsListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				0556C5432411344B00D148A0 /* AddNewWordView.swift */,
 				056D8C652412B36F00BEA46B /* MultiSelectRow.swift */,
 				056B692923F155060069091F /* ContentView.swift */,
+				05CD54EC241673B8008E08D1 /* MemorizeWordsListView.swift */,
 				056B692B23F155080069091F /* Assets.xcassets */,
 				056B693323F155080069091F /* Info.plist */,
 				056B692D23F155080069091F /* Preview Content */,
@@ -167,6 +170,7 @@
 				056B692823F155060069091F /* SceneDelegate.swift in Sources */,
 				0556C5442411344B00D148A0 /* AddNewWordView.swift in Sources */,
 				056B692A23F155060069091F /* ContentView.swift in Sources */,
+				05CD54ED241673B8008E08D1 /* MemorizeWordsListView.swift in Sources */,
 				056D8C662412B36F00BEA46B /* MultiSelectRow.swift in Sources */,
 				056D8C692412B74400BEA46B /* Word.swift in Sources */,
 			);

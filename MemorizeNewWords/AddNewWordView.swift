@@ -34,8 +34,6 @@ struct AddNewWordView: View {
             .background(Color.white.opacity(0.5))
             .cornerRadius(20)
             
-            
-            
             Button(action: {
                 self.modelData.append(Word(spanishWord: self.newSpanishWord, translatedWorld: self.newTranslatedWord, isSelected: true))
                 self.newSpanishWord = ""
